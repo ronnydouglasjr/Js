@@ -1,13 +1,16 @@
 const form = document.querySelector("#form");
 const message = document.querySelector(".message");
 
+const inputA =  document.querySelector("#fieldA")
+const inputB = document.querySelector("#fieldB");
+
 function biggerNumber(fieldA, fieldB) {
   message.style.color = "white";
 
   if (fieldA < fieldB) {
     message.style.backgroundColor = "green";
-    document.querySelector("#fieldA").value = "";
-    document.querySelector("#fieldB").value = "";
+    inputA.value = "";
+    inputB.value = "";
     return "Validação Valida, Numero B é maior do que o Numero A.";
   } else {
     if (fieldA > fieldB) {
@@ -23,19 +26,19 @@ function biggerNumber(fieldA, fieldB) {
 
 function styleInputs(fieldA, fieldB) {
   if (fieldA > fieldB || fieldA === fieldB) {
-    document.querySelector("#fieldA").style.border = "1.5px solid red";
-    document.querySelector("#fieldB").style.border = "1.5px solid red";
+    inputA.style.border = "1.5px solid red";
+    inputB.style.border = "1.5px solid red";
   } else {
-    document.querySelector("#fieldA").style.border = "";
-    document.querySelector("#fieldB").style.border = "";
+    inputA.style.border = "";
+    inputB.style.border = "";
   }
 }
 
 form.addEventListener("submit", function (e) {
   e.preventDefault();
 
-  const inputFieldA = Number(document.querySelector("#fieldA").value);
-  const inputFieldB = Number(document.querySelector("#fieldB").value);
+  const inputFieldA = Number(inputA.value);
+  const inputFieldB = Number(inputB.value);
 
   message.style.display = "block";
   styleInputs(inputFieldA, inputFieldB);
